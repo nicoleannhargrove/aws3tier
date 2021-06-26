@@ -190,7 +190,7 @@ resource "aws_instance" "tWebSrv" {
   subnet_id                   = aws_subnet.tsnwebsrv.id
   associate_public_ip_address = true
   key_name                    = aws_key_pair.tWebSrvkp.key_name
-  user_data                   = file("ubuntu.sh")
+  user_data                   = file("nginx.sh")
 
   tags = {
     Name = "tWebSrv${count.index}"
@@ -222,7 +222,7 @@ resource "aws_instance" "tAppSrv" {
   subnet_id                   = aws_subnet.tsnappsrv.id
   associate_public_ip_address = true
   key_name                    = aws_key_pair.tAppSrvkp.key_name
-  user_data                   = file("amzl.sh")
+  user_data                   = file("apachehttpd.sh")
 
   tags = {
     Name = "tAppSrv${count.index}"
