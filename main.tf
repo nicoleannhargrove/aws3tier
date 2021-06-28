@@ -222,7 +222,7 @@ resource "aws_instance" "tAppSrv" {
   subnet_id                   = aws_subnet.tsnappsrv.id
   associate_public_ip_address = true
   key_name                    = aws_key_pair.tAppSrvkp.key_name
-  user_data                   = file("apachehttpd.sh")
+  user_data                   = file("apachehttp.sh")
 
   tags = {
     Name = "tAppSrv${count.index}"
